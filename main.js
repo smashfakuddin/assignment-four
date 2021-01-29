@@ -1,52 +1,47 @@
 document.getElementById('economy-increase').addEventListener('click', function () {
-    testFunction(true);
+    seatIncrease("economy",true);
 
 })
 document.getElementById('economy-decrease').addEventListener('click', function () {
-    testFunction(false);
+    seatIncrease("economy",false);
 
 })
 
 document.getElementById('firstClass-increase').addEventListener('click', function () {
-    testFunction2(true);
+    seatIncrease('first',true);
 
 
 })
 document.getElementById('firstClass-decrease').addEventListener('click', function () {
-    testFunction2(false);
+    seatIncrease('first',false);
 
 })
 
-function testFunction(wantToIncrease) {
-    var secondClassSeatCount = document.getElementById("economy-class");
-    var secondClassSeatCountNumber = parseInt(secondClassSeatCount.value);
-    var secondClassSeatCountNew = 0;
-    if (wantToIncrease == true) {
-        var secondClassSeatCountNew = secondClassSeatCountNumber + 1;
+function seatIncrease(seatName,wantToIncrease) {
+        var SeatCount = document.getElementById(seatName +"-class");
+        var SeatCountNumber = parseInt(SeatCount.value);
+        var SeatCountNew = 0;
+        if (wantToIncrease == true) {
+            var SeatCountNew = SeatCountNumber + 1;
+        }
+        if (wantToIncrease == false && SeatCountNumber > 0) {
+            var SeatCountNew = SeatCountNumber - 1;
+        }
+        var totalPrice = 0;
+        if(seatName == 'economy'){
+            totalPrice = SeatCountNew * 100;
+        }
+        if(seatName == 'first'){
+            totalPrice = SeatCountNew * 150;
+        }
+
+        SeatCount.value = SeatCountNew;
+    
+
+        document.getElementById(seatName+ '-price').innerText =totalPrice;
+    
     }
-    if (wantToIncrease == false && secondClassSeatCountNumber > 0) {
-        var secondClassSeatCountNew = secondClassSeatCountNumber - 1;
-    }
-    secondClassSeatCount.value = secondClassSeatCountNew;
 
-    secondClassTotal = secondClassSeatCountNew * 100;
-    document.getElementById('economyClass-price').innerText = secondClassTotal;
 
-}
 
-function testFunction2(wantToIncrease) {
-    var secondClassSeatCount = document.getElementById("first-class");
-    var secondClassSeatCountNumber = parseInt(secondClassSeatCount.value);
-    var secondClassSeatCountNew = 0;
-    if (wantToIncrease == true) {
-        var secondClassSeatCountNew = secondClassSeatCountNumber + 1;
-    }
-    if (wantToIncrease == false && secondClassSeatCountNumber > 0) {
-        var secondClassSeatCountNew = secondClassSeatCountNumber - 1;
-    }
-    secondClassSeatCount.value = secondClassSeatCountNew;
 
-    secondClassTotal = secondClassSeatCountNew * 150;
-    document.getElementById('firstClass-price').innerText = secondClassTotal;
-
-}
