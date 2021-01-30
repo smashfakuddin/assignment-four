@@ -20,7 +20,6 @@ document.getElementById('firstClass-decrease').addEventListener('click', functio
 function seatIncrease(seatName, wantToIncrease) {
     var SeatCount = document.getElementById(seatName + "-class");
     var SeatCountNumber = parseInt(SeatCount.value);
-    // var SeatCountNumber =  getInputValue(seatName);
     var SeatCountNew = 0;
     if (wantToIncrease == true) {
         var SeatCountNew = SeatCountNumber + 1;
@@ -59,3 +58,12 @@ function bookingTotal() {
 
 
 }
+
+const loginBtn = document.getElementById("main-button");
+loginBtn.addEventListener("click", function () {
+    const loginArea = document.getElementById("test-file");
+    loginArea.style.display = "block";
+
+    // const transactionArea = document.getElementById("hide");
+    // transactionArea.style.display = "none";
+})
