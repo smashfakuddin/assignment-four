@@ -58,12 +58,10 @@ function bookingTotal() {
 
 
 }
-
+// for added component
 const loginBtn = document.getElementById("main-button");
 loginBtn.addEventListener("click", function () {
-    const loginArea = document.getElementById("test-file");
+    const loginArea = document.getElementById("message");
     loginArea.style.display = "block";
 
-    // const transactionArea = document.getElementById("hide");
-    // transactionArea.style.display = "none";
 })
